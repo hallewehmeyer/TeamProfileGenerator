@@ -42,22 +42,22 @@ const questionsEngineer = [{
 const basicQuestions = [{
     type: "input",
     message: "What is your name",
-    name: "Name",
+    name: "name",
 },
 {
     type: "input",
     message: "What is your email",
-    name: "Email",
+    name: "email",
 },
 {
     type: "input",
     message: "What is your id",
-    name: "Id",
+    name: "id",
 },
 {
     type: "list",
     message: "What is your employee role?",
-    name: "Role",
+    name: "role",
     choices: ["Engineer", "Intern", "Manager"]
 }
 ]
