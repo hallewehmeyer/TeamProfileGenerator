@@ -1,18 +1,23 @@
 // TODO: Write code to define and export the Employee class
 class Employee {
-    constructor(name, id, email) {
-        super(name, id, email);
-        this.github = github;
+    constructor(name, id, email, role = "Employee") {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.role = role;
     }
 
     getName(){
         return this.name;
     }
     getID(){
-        return this.ID;
+        return this.id;
     }
     getEmail(){
-        return this.email
+        return this.email;
+    }
+    getRole(){
+        return this.role;
     }
 }
-module.expert = Employee;
+module.exports = Employee;

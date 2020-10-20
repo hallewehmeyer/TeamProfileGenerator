@@ -14,64 +14,44 @@ let employeeArray = [];
 
 const questionsManager = [{
 
-    type: "input",
-    message: "What is your name",
-    name: "managerName",
-},
-{
-    type: "input",
-    message: "What is your email",
-    name: "managerEmail",
-},
-{
-    type: "input",
-    message: "What is your id",
-    name: "managerId",
-},
+        type: "input",
+        message: "What is your office number?",
+        name: "managerOfficeNumber",
+    },
 
 ]
 const questionsIntern = [{
-    type: "input",
-    message: "What is your name",
-    name: "internName",
-},
-{
-    type: "input",
-    message: "What is your email",
-    name: "internEmail",
-},
-{
-    type: "input",
-    message: "What is your id",
-    name: "internId",
-},
-{
-    type: "input",
-    message: "What school did you attend",
-    name: "internSchool",
-},
+        type: "input",
+        message: "What school did you attend",
+        name: "internSchool",
+    }
 ]
 const questionsEngineer = [{
+        type: "input",
+        message: "What is your github url?",
+        name: "engineerGithub",
+    }
+]
+const basicQuestions = [{
     type: "input",
     message: "What is your name",
-    name: "engineerName",
+    name: "Name",
 },
 {
     type: "input",
     message: "What is your email",
-    name: "engineerEmail",
+    name: "Email",
 },
 {
     type: "input",
     message: "What is your id",
-    name: "engineerId",
-},
-{
-    type: "input",
-    message: "What is your github url?",
-    name: "engineerGithub",
-},
+    name: "Id",
+}
 ]
+
+
+
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
