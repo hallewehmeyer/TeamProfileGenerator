@@ -14,6 +14,7 @@ const { start } = require("repl");
 const { CustomConsole } = require("@jest/console");
 
 let employeeArray = [];
+let id = 0;
 let questionsContinue = [{
 type: "confirm",
 message: "Would you like to add another employee?",
@@ -31,7 +32,7 @@ const questionsManager = [{
 const questionsIntern = [{
     type: "input",
     message: "What school did you attend",
-    name: "internSchool",
+    name: "school",
 }]
 const questionsEngineer = [{
     type: "input",
@@ -49,11 +50,6 @@ const basicQuestions = [{
     name: "email",
 },
 {
-    type: "input",
-    message: "What is your id",
-    name: "id",
-},
-{
     type: "list",
     message: "What is your employee role?",
     name: "Role",
@@ -68,7 +64,8 @@ inquirer.prompt(basicQuestions).then(function (answers) {
     if (answers.Role === "Engineer") {
         inquirer.prompt(questionsEngineer).then(function (EngineerAnswers) {
             // console.log(EngineerAnswers)
-            const engineer = new Engineer(answers.name, answers.id, answers.email, EngineerAnswers.github)
+            id = id+1;
+            const engineer = new Engineer(answers.name, id, answers.email, EngineerAnswers.github)
             console.log(engineer)
             employeeArray .push(engineer)
             contEmployee()
@@ -77,17 +74,18 @@ inquirer.prompt(basicQuestions).then(function (answers) {
     else if (answers.Role === "Intern") {
         inquirer.prompt(questionsIntern).then(function (InternAnswers) {
             // console.log(InternAnswers)
-            const intern = new Intern(answers.name, answers.id, answers.email, InternAnswers.school)
+            id = id+1;
+            const intern = new Intern(answers.name, id, answers.email, InternAnswers.school)
             console.log(intern)
             employeeArray .push(intern)
             contEmployee()
         })
-
     }
     else {
         inquirer.prompt(questionsManager).then(function (ManagerAnswers) {
             // console.log(ManagerAnswers)
-            const manager = new Manager(answers.name, answers.id, answers.email, ManagerAnswers.officeNumber)
+            id = id+1;
+            const manager = new Manager(answers.name, id, answers.email, ManagerAnswers.officeNumber)
             console.log(manager)
             employeeArray .push(manager)
             contEmployee()
