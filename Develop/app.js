@@ -11,6 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const { boolean } = require("yargs");
 const { start } = require("repl");
+const { CustomConsole } = require("@jest/console");
 
 let employeeArray = [];
 let questionsContinue = [{
@@ -24,21 +25,19 @@ const questionsManager = [{
     type: "input",
     message: "What is your office number?",
     name: "managerOfficeNumber",
-},
+}]
 
-]
+
 const questionsIntern = [{
     type: "input",
     message: "What school did you attend",
     name: "internSchool",
-}
-]
+}]
 const questionsEngineer = [{
     type: "input",
     message: "What is your github url?",
-    name: "engineerGithub",
-}
-]
+    name: "github",
+}]
 const basicQuestions = [{
     type: "input",
     message: "What is your name",
@@ -57,7 +56,7 @@ const basicQuestions = [{
 {
     type: "list",
     message: "What is your employee role?",
-    name: "role",
+    name: "Role",
     choices: ["Engineer", "Intern", "Manager"]
 }
 ]
@@ -69,7 +68,8 @@ inquirer.prompt(basicQuestions).then(function (answers) {
     if (answers.Role === "Engineer") {
         inquirer.prompt(questionsEngineer).then(function (EngineerAnswers) {
             // console.log(EngineerAnswers)
-            const engineer = new Engineer(answers.Name, answers.Id, answers.Email, EngineerAnswers.engineerGithub)
+            const engineer = new Engineer(answers.name, answers.id, answers.email, EngineerAnswers.github)
+            console.log(engineer)
             employeeArray .push(engineer)
             contEmployee()
         })
@@ -77,7 +77,8 @@ inquirer.prompt(basicQuestions).then(function (answers) {
     else if (answers.Role === "Intern") {
         inquirer.prompt(questionsIntern).then(function (InternAnswers) {
             // console.log(InternAnswers)
-            const intern = new Intern(answers.Name, answers.Id, answers.Email, InternAnswers.internSchool)
+            const intern = new Intern(answers.name, answers.id, answers.email, InternAnswers.school)
+            console.log(intern)
             employeeArray .push(intern)
             contEmployee()
         })
@@ -86,7 +87,7 @@ inquirer.prompt(basicQuestions).then(function (answers) {
     else {
         inquirer.prompt(questionsManager).then(function (ManagerAnswers) {
             // console.log(ManagerAnswers)
-            const manager = new Manager(answers.Name, answers.Id, answers.Email, ManagerAnswers.managerOfficeNumber)
+            const manager = new Manager(answers.name, answers.id, answers.email, ManagerAnswers.officeNumber)
             console.log(manager)
             employeeArray .push(manager)
             contEmployee()
@@ -103,7 +104,7 @@ inquirer.prompt(questionsContinue).then(function(continueAnswer){
         startEmployee()
     }
     else {
-       fs.writeFileSync(outputPath, render(employeeArray), 'utf8')
+       fs.writeFileSync(outputPath, render(employeeArray), 'utf8');
     }
 })
 }

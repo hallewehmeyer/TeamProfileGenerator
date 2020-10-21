@@ -1,0 +1,30 @@
+h1 {
+background-color: rgb(243, 97, 153);
+}
+h2{
+    background-color:rgb(105, 186, 240);
+}
+.card-header{
+    background-color: rgb(105, 186, 240);
+}
+.container-fluid{
+    background-color: rgb(243, 97, 153);
+}
+.team-heading{
+    background-color: rgb(243, 97, 153);
+}
+.team-heading{
+    background-color: rgb(243, 97, 153);
+}
+.employee-card{
+    margin-top: 10%;
+    margin-left: 3%;
+    margin-right: 3%;
+    box-shadow: cadetblue;
+}
+.text-center{
+    color: white;
+}
+.card-title{
+    color: white;
+}
