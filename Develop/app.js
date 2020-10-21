@@ -103,7 +103,7 @@ inquirer.prompt(questionsContinue).then(function(continueAnswer){
         startEmployee()
     }
     else {
-        render(employeeArray)
+       fs.writeFileSync(outputPath, render(employeeArray), 'utf8')
     }
 })
 }
