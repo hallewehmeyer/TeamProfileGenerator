@@ -28,3 +28,8 @@ h2{
 .card-title{
     color: white;
 }
+.team-area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
